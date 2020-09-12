@@ -14,7 +14,7 @@ my_auth = requests_oauthlib.OAuth1(credentials.consumer_key, credentials.consume
 
 def ReadTweets():
     url = 'https://stream.twitter.com/1.1/statuses/filter.json'	
-    query_data = [('language', 'en'), ('locations', '-130,-20,100,50'),('track','covid')]
+    query_data = [('language', 'en'), ('locations', '-130,-20,100,50'),('covid')]
     query_url = url + '?' + '&'.join([str(t[0]) + '=' + str(t[1]) for t in query_data])
     response = requests.get(query_url, auth=my_auth, stream=True)
     print(query_url, response)
