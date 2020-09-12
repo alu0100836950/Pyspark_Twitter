@@ -34,7 +34,7 @@ def process_rdd(time, rdd):
         sql_context.registerDataFrameAsTable(hashtags_df, "hashtags")
       
 
-        country_counts_df = sql_context.sql("select word as Codigo_Pais, word_count as Num_Tweets from hashtags where word like 'CC%'order by word_count desc limit 5")
+        country_counts_df = sql_context.sql("select word as Codigo_Pais, word_count as Num_Tweets from hashtags where word like 'Code-%'order by word_count desc limit 5")
         country_counts_df.show()
         country_counts_df.coalesce(1).write.format('com.databricks.spark.csv').mode('overwrite').option("header", "true").csv("/home/alberto/Documentos/Master_informatica/Computacion_en_la_nube/pyspark_twitter/data/country_file.csv")
    

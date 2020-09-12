@@ -25,18 +25,15 @@ def ReadTweets():
 
 def TweetsToSpark(http_resp, tcp_connection):
 	for line in http_resp.iter_lines():
-		try:
 
-			full_tweet = json.loads(line)
+		full_tweet = json.loads(line)
 
-			tweet_country_code = "CC"+full_tweet['place']['country_code']
-			print("COUNTRY CODE IS : " + tweet_country_code)
-			print ("------------------------------------------")
+		tweet_country_code = "Code-"+full_tweet['place']['country_code']
+		print("COUNTRY CODE IS : " + tweet_country_code)
+		print ("------------------------------------------")
 
-			tcp_connection.send((tweet_country_code + '\n').encode())
+		tcp_connection.send((tweet_country_code + '\n').encode())
 			
-		except:
-			continue
 
 
 
