@@ -148,6 +148,7 @@ Una de las partes más interesante es el procesamiento de los datos que se reali
 ```
 
 ![data console](img/data_console.jpeg)
+
 *Este sería un ejemplo de la salida en este paso*
 
 ```python    
@@ -156,6 +157,6 @@ Una de las partes más interesante es el procesamiento de los datos que se reali
    ```
     Como vemos se han guardado los archivos en un archivo *.csv* para poder manipularlos y crear una aplicación web de visualización.
 
-#### Visualización de los datos <a name="id2.2"></a>
+### Visualización de los datos <a name="id3"></a>
 
-### Conclusiones <a name="id3"></a>
+### Conclusiones <a name="id4"></a>
