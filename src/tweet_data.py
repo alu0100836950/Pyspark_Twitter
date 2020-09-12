@@ -29,19 +29,14 @@ def TweetsToSpark(http_resp, tcp_connection):
 
 			full_tweet = json.loads(line)
 
-			tweet_text = full_tweet['text']
-			print("Tweet Text: " + tweet_text)
-			print ("------------------------------------------")
-			     
-		
 			tweet_country_code = "CC"+full_tweet['place']['country_code']
 			print("COUNTRY CODE IS : " + tweet_country_code)
 			print ("------------------------------------------")
 
-			tcp_connection.send((tweet_text +' '+ tweet_country_code + '\n').encode())
+			tcp_connection.send((tweet_country_code + '\n').encode())
 			
-		except Exception as e:
-			print('Mensaje', e)
+		except:
+			continue
 
 
 

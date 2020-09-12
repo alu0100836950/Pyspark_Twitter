@@ -4,7 +4,7 @@ from pyspark.sql import Row,SQLContext
 
 import sys
 import requests
-from pyspark.sql.types import *
+#from pyspark.sql.types import *
 
 import pandas as pd
 
@@ -33,15 +33,10 @@ def process_rdd(time, rdd):
         # Una vez el dataframe creado creamos una tabla en un contexto sql con un nombre especifico
         sql_context.registerDataFrameAsTable(hashtags_df, "hashtags")
       
-        
-        # hashtag_counts_df = sql_context.sql("select word , word_count from hashtags where word like '#%'order by word_count desc limit 10")
-        # hashtag_counts_df.show()
-        # hashtag_counts_df.coalesce(1).write.format('com.databricks.spark.csv').mode('overwrite').option("header", "true").csv("/home/alberto/Documentos/Master_informatica/Computacion_en_la_nube/elputotwitter/hashtag_file.csv") 
 
-
-        country_counts_df = sql_context.sql("select word as Codigo_Pais, word_count as Num_Twitter from hashtags where word like 'CC%'order by word_count desc limit 5")
+        country_counts_df = sql_context.sql("select word as Codigo_Pais, word_count as Num_Tweets from hashtags where word like 'CC%'order by word_count desc limit 5")
         country_counts_df.show()
-        country_counts_df.coalesce(1).write.format('com.databricks.spark.csv').mode('overwrite').option("header", "true").csv("/home/alberto/Documentos/Master_informatica/Computacion_en_la_nube/pyspark_twitter/country_file.csv")
+        country_counts_df.coalesce(1).write.format('com.databricks.spark.csv').mode('overwrite').option("header", "true").csv("/home/alberto/Documentos/Master_informatica/Computacion_en_la_nube/pyspark_twitter/data/country_file.csv")
    
        
     except:
@@ -63,7 +58,7 @@ ssc = StreamingContext(sc, 5)
 
 # setting a checkpoint to allow RDD recovery
 # Configuramos un "checkpoint" para permitir recuperar el RDD
-ssc.checkpoint("checkpoint_TwitterCovid")
+ssc.checkpoint("../checkpoint_TwitterCovid")
 
 # Leemos los datos desde localhost por el puerto 5556
 dataStream = ssc.socketTextStream("localhost",5556)
