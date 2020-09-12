@@ -28,13 +28,13 @@ def process_rdd(time, rdd):
         row_rdd = rdd.map(lambda w: Row(word=w[0], word_count=w[1]))
         
         # creamos el dataframe
-        hashtags_df = sql_context.createDataFrame(row_rdd)
+        country_df = sql_context.createDataFrame(row_rdd)
         
         # Una vez el dataframe creado creamos una tabla en un contexto sql con un nombre especifico
-        sql_context.registerDataFrameAsTable(hashtags_df, "hashtags")
+        sql_context.registerDataFrameAsTable(country_df, "countries")
       
 
-        country_counts_df = sql_context.sql("select word as Codigo_Pais, word_count as Num_Tweets from hashtags where word like 'Code-%'order by word_count desc limit 5")
+        country_counts_df = sql_context.sql("select word as Codigo_Pais, word_count as Num_Tweets from countries where word like 'Code-%'order by word_count desc limit 5")
         country_counts_df.show()
         country_counts_df.coalesce(1).write.format('com.databricks.spark.csv').mode('overwrite').option("header", "true").csv("/home/alberto/Documentos/Master_informatica/Computacion_en_la_nube/pyspark_twitter/data/country_file.csv")
    
@@ -63,15 +63,12 @@ ssc.checkpoint("../checkpoint_TwitterCovid")
 # Leemos los datos desde localhost por el puerto 5556
 dataStream = ssc.socketTextStream("localhost",5556)
 
-# separamos el tweet por palabras usando split para los espacios
-words = dataStream.flatMap(lambda line: line.split(' '))
 
-  
-# filter the words to get only hashtags, then map each hashtag to be a pair of (hashtag,1)
-hashtags = words.map(lambda x: (x, 1)) 
+# Map para obtener (code,1)
+words_map = dataStream.map(lambda x: (x, 1)) 
 
-# añadimos nuevos datos refresh
-tags_totals = hashtags.updateStateByKey(aggregate_tags_count)
+# Añadimos nuevos datos refresh
+tags_totals = words_map.updateStateByKey(aggregate_tags_count)
 
 # Procesamiento de los RDD en cada intervalo de tiempo
 tags_totals.foreachRDD(process_rdd)
