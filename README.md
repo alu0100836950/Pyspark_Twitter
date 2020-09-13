@@ -129,7 +129,7 @@ Una de las partes más interesante es el procesamiento de los datos que se reali
         row_rdd = rdd.map(lambda w: Row(word=w[0], word_count=w[1]))
         
         # creamos el dataframe
-        hashtags_df = sql_context.createDataFrame(row_rdd)
+        country_df = sql_context.createDataFrame(row_rdd)
         
         # Una vez el dataframe creado creamos una tabla en un contexto sql con un nombre especifico
         sql_context.registerDataFrameAsTable(country_df, "countries")
