@@ -163,7 +163,7 @@ Para hacer la visualización se ha hecho un pequeño código en **Python** utili
 
 Ejecutamos el archivo *appDash.py* para lanzar el servidor que nos sirve una página web en la dirección *localhost:8050*:
 
-![pagina_web](gif/pyspark.jpeg)
+![page_web](gif/pyspark.gif)
 
 Como vemos en el anterior gif, vamos a la ruta *localhost:8050* y podemos arrastrar o seleccionar un archivo. El archivo que necesitamos esta en la carpeta *data*, lo seleccionamos y se nos muestran los datos que habiamos recogido. 
 
@@ -173,3 +173,5 @@ En la siguiente imagen vemos solamente el gráfico de barras con los datos y pod
 
 
 ### Conclusiones <a name="id4"></a>
+
+Como vemos en los resultados *Estados Unidos* es el país que mas Tuitea sobre **coronavirus** actualmente. Tenemos que tener en cuenta que depende del tiempo que tengamos la aplicación pyspark ejecutada. También influye que hay más cantidad de personas en Estados Unidos que en otros países y por eso hay una diferencia grande en los datos. Una solución podría ser separar Estados Unidos del resto de países o escoger un número mayor de países para mostrar.
