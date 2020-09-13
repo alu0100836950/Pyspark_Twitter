@@ -1,4 +1,4 @@
-# Paises que más tuitean sobre el Coronavirus
+# Paises que más Tuitean sobre el Coronavirus
 
 
 #### Alberto Martín Núñez
@@ -158,5 +158,18 @@ Una de las partes más interesante es el procesamiento de los datos que se reali
     Como vemos se han guardado los archivos en un archivo *.csv* para poder manipularlos y crear una aplicación web de visualización.
 
 ### Visualización de los datos <a name="id3"></a>
+
+Para hacer la visualización se ha hecho un pequeño código en **Python** utilizando un framework llamado **Dash** diseñado para crear aplicaciones web. Es muy útil para crear cuadros de mando y aplicaciones de visualización.
+
+Ejecutamos el archivo *appDash.py* para lanzar el servidor que nos sirve una página web en la dirección *localhost:8050*:
+
+![pagina_web](gif/pyspark.jpeg)
+
+Como vemos en el anterior gif, vamos a la ruta *localhost:8050* y podemos arrastrar o seleccionar un archivo. El archivo que necesitamos esta en la carpeta *data*, lo seleccionamos y se nos muestran los datos que habiamos recogido. 
+
+En la siguiente imagen vemos solamente el gráfico de barras con los datos y podemos observar como Estados Unidos es el país que mas *tuitea* con diferencia.
+
+![Graph](img/data_bar.jpeg)
+
 
 ### Conclusiones <a name="id4"></a>

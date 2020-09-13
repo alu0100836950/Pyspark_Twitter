@@ -87,7 +87,7 @@ def parse_contents(contents, filename, date):
             figure={
                 'data': [
                     
-                    {'x': df['Codigo_Pais'], 'y': df['Num_Twitter'], 'type': 'bar', 'name': 'Tweet/Pais'},
+                    {'x': df['Codigo_Pais'], 'y': df['Num_Tweets'], 'type': 'bar', 'name': 'Tweet/Pais'},
                 ],
                 'layout': go.Layout(
                 
