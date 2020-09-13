@@ -157,7 +157,7 @@ Una de las partes más interesante es el procesamiento de los datos que se reali
    ```
     Como vemos se han guardado los archivos en un archivo *.csv* para poder manipularlos y crear una aplicación web de visualización.
 
-### Visualización de los datos <a name="id3"></a>
+#### Visualización de los datos <a name="id2.2"></a>
 
 Para hacer la visualización se ha hecho un pequeño código en **Python** utilizando un framework llamado **Dash** diseñado para crear aplicaciones web. Es muy útil para crear cuadros de mando y aplicaciones de visualización.
 
@@ -172,7 +172,7 @@ En la siguiente imagen vemos solamente el gráfico de barras con los datos y pod
 ![Graph](img/data_bar.jpeg)
 
 
-### Conclusiones <a name="id4"></a>
+### Conclusiones <a name="id3"></a>
 
 Como vemos en los resultados *Estados Unidos* es el país que mas Tuitea sobre **coronavirus** actualmente. Tenemos que tener en cuenta que depende del tiempo que tengamos la aplicación pyspark ejecutada. También influye que hay más cantidad de personas en Estados Unidos que en otros países y por eso hay una diferencia grande en los datos. Una solución podría ser separar Estados Unidos del resto de países o escoger un número mayor de países para mostrar.
 
