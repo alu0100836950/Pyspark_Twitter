@@ -175,3 +175,5 @@ En la siguiente imagen vemos solamente el gráfico de barras con los datos y pod
 ### Conclusiones <a name="id4"></a>
 
 Como vemos en los resultados *Estados Unidos* es el país que mas Tuitea sobre **coronavirus** actualmente. Tenemos que tener en cuenta que depende del tiempo que tengamos la aplicación pyspark ejecutada. También influye que hay más cantidad de personas en Estados Unidos que en otros países y por eso hay una diferencia grande en los datos. Una solución podría ser separar Estados Unidos del resto de países o escoger un número mayor de países para mostrar.
+
+Los otros países que más *tuitean* son *Nigeria, Canada, Ghana y Jamaica*. Estos resultados si parecen llamativos debido a la Geolocalizacion de los países. Esto puede resultar interesante para evaluar el estado del país y saber que esta ocurriendo.
